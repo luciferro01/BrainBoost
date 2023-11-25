@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { useFonts } from "expo-font";
 import LogInScreen from "./App/Screens/LogInScreen";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-expo";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -13,12 +14,19 @@ export default function App() {
   });
 
   return (
-    <SafeAreaProvider>
-      <View style={styles.container}>
-        <LogInScreen />
-        <StatusBar style="auto" />
-      </View>
-    </SafeAreaProvider>
+    <ClerkProvider publishableKey={process.env.CLERK_PUBLISHABLE_KEY}>
+      <SafeAreaProvider>
+        <View style={styles.container}>
+          <SignedIn>
+            <Text>You are Signed in</Text>
+          </SignedIn>
+          <SignedOut>
+            <LogInScreen />
+          </SignedOut>
+          <StatusBar style="auto" />
+        </View>
+      </SafeAreaProvider>
+    </ClerkProvider>
   );
 }
 

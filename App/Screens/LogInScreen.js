@@ -3,9 +3,32 @@ import React from "react";
 import Icon from "react-native-vector-icons/AntDesign";
 import appImage from "../../assets/images/appImage.jpg";
 import Colors from "../Utils/Colors";
-import { Touchable } from "react-native";
 
+import * as WebBrowser from "expo-web-browser";
+import { useOAuth } from "@clerk/clerk-expo";
+import { useWarmUpBrowser } from "../../hooks/warmUpBrowser.tsx";
+
+WebBrowser.maybeCompleteAuthSession();
 const LogInScreen = () => {
+  useWarmUpBrowser();
+
+  const { startOAuthFlow } = useOAuth({ strategy: "oauth_google" });
+
+  const onPress = React.useCallback(async () => {
+    try {
+      const { createdSessionId, signIn, signUp, setActive } =
+        await startOAuthFlow();
+
+      if (createdSessionId) {
+        setActive({ session: createdSessionId });
+      } else {
+        // Use signIn or signUp for next steps such as MFA
+      }
+    } catch (err) {
+      console.error("OAuth error", err);
+    }
+  }, []);
+
   return (
     <View style={{ display: "flex", alignItems: "center", marginTop: 50 }}>
       <Image
@@ -46,7 +69,7 @@ const LogInScreen = () => {
           Your Ultimate Programming Learning Box
         </Text>
         <TouchableOpacity
-        onPress={}
+          onPress={onPress}
           style={{
             display: "flex",
             alignItems: "center",
