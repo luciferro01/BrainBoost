@@ -1,22 +1,22 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeScreen from "../Screens/HomeScreen";
 import LeaderBoard from "../Screens/LeaderBoard";
 import MyCourse from "../Screens/MyCourse";
 import ProfileSection from "../Screens/ProfileSection";
 import { Feather } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
+import HomeScreen from "../Screens/HomeScreen";
 const Tab = createBottomTabNavigator();
 
 const TabNavigation = () => {
   return (
     <Tab.Navigator
-      initialRouteName="home"
+      initialRouteName="myCourse"
       backBehavior="intialRoute"
       screenOptions={{ headerShown: false }}
     >
       <Tab.Screen
-        name="Home"
+        name="home"
         component={HomeScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
