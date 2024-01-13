@@ -4,6 +4,8 @@ import { useFonts } from "expo-font";
 import LogInScreen from "./App/Screens/LogInScreen";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-expo";
+import { NavigationContainer } from "@react-navigation/native";
+import TabNavigation from "./App/Navigations/TabNavigation";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -14,11 +16,15 @@ export default function App() {
   });
 
   return (
-    <ClerkProvider publishableKey={process.env.CLERK_PUBLISHABLE_KEY}>
+    <ClerkProvider
+      publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY}
+    >
       <SafeAreaProvider>
         <View style={styles.container}>
           <SignedIn>
-            <Text>You are Signed in</Text>
+            {/* <NavigationContainer>
+              <TabNavigation style={{ fontFamily: "outfit" }} />
+            </NavigationContainer> */}
           </SignedIn>
           <SignedOut>
             <LogInScreen />
@@ -34,5 +40,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+    marginTop: 20,
   },
 });

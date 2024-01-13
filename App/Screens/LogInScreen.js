@@ -1,12 +1,15 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
-import Icon from "react-native-vector-icons/AntDesign";
-import appImage from "../../assets/images/appImage.jpg";
+import appImage from "../../assets/images/app.png";
 import Colors from "../Utils/Colors";
 
 import * as WebBrowser from "expo-web-browser";
 import { useOAuth } from "@clerk/clerk-expo";
 import { useWarmUpBrowser } from "../../hooks/warmUpBrowser.tsx";
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from "react-native-responsive-screen";
 
 WebBrowser.maybeCompleteAuthSession();
 const LogInScreen = () => {
@@ -83,10 +86,13 @@ const LogInScreen = () => {
             marginTop: 25,
           }}
         >
-          <Icon name="google" size={30} color="black" />
+          <Image
+            source={require("../../assets/images/google.png")}
+            style={{ width: wp(7), height: hp(5) }}
+          />
           <Text
             style={{
-              fontSize: 20,
+              fontSize: wp(5),
               color: Colors.PRIMARY,
               fontFamily: "outfit",
             }}
