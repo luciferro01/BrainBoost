@@ -11,7 +11,7 @@ const Tab = createBottomTabNavigator();
 const TabNavigation = () => {
   return (
     <Tab.Navigator
-      initialRouteName="myCourse"
+      initialRouteName="home"
       backBehavior="intialRoute"
       screenOptions={{ headerShown: false }}
     >

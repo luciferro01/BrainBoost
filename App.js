@@ -11,8 +11,7 @@ export default function App() {
   const [fontsLoaded] = useFonts({
     outfit: require("./assets/fonts/Outfit-Regular.ttf"),
     "outfit-bold": require("./assets/fonts/Outfit-Bold.ttf"),
-    "outfit-semiBold": require("./assets/fonts/Outfit-SemiBold.ttf"),
-    "outfit-light": require("./assets/fonts/Outfit-Light.ttf"),
+    "outfit-medium": require("./assets/fonts/Outfit-SemiBold.ttf"),
   });
 
   return (
