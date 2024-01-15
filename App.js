@@ -10,6 +10,7 @@ import TabNavigation from "./App/Navigations/TabNavigation";
 import HomeScreenNavigation from "./App/Navigations/HomeScreenNavigation";
 import { CompleteChapterContext } from "./App/Context/CompleteChapterContext";
 import { useState } from "react";
+import { UserPointsContext } from "./App/Context/UserPointsContext";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -19,30 +20,33 @@ export default function App() {
   });
 
   const [isChapterComplete, setIsChapterComplete] = useState(false);
+  const [userPoints, setUserPoints] = useState();
 
   return (
     <ClerkProvider
       publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY}
     >
       <SafeAreaProvider>
-        <CompleteChapterContext.Provider
-          value={{ isChapterComplete, setIsChapterComplete }}
-        >
-          <View style={styles.container}>
-            <SignedIn>
-              <NavigationContainer>
-                <TabNavigation style={{ fontFamily: "outfit" }} />
-              </NavigationContainer>
-              {/* <NavigationContainer> 
+        <UserPointsContext.Provider value={{ userPoints, setUserPoints }}>
+          <CompleteChapterContext.Provider
+            value={{ isChapterComplete, setIsChapterComplete }}
+          >
+            <View style={styles.container}>
+              <SignedIn>
+                <NavigationContainer>
+                  <TabNavigation style={{ fontFamily: "outfit" }} />
+                </NavigationContainer>
+                {/* <NavigationContainer> 
              <HomeScreenNavigation /> 
             </NavigationContainer> */}
-            </SignedIn>
-            <SignedOut>
-              <LogInScreen />
-            </SignedOut>
-            <StatusBar style="auto" />
-          </View>
-        </CompleteChapterContext.Provider>
+              </SignedIn>
+              <SignedOut>
+                <LogInScreen />
+              </SignedOut>
+              <StatusBar style="auto" />
+            </View>
+          </CompleteChapterContext.Provider>
+        </UserPointsContext.Provider>
       </SafeAreaProvider>
     </ClerkProvider>
   );
