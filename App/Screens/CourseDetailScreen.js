@@ -29,6 +29,11 @@ export default function CourseDetailScreen() {
     }
   }, [params.course, user]);
 
+  // Function to handle getting the users enrolled courses and setting it in state
+  useEffect(() => {
+    isChapterComplete && GetUserEnrolledCourse();
+  }, [isChapterComplete]);
+
   const UserEnrollCourse = () => {
     enrollCourse(params.course.id, user.primaryEmailAddress.emailAddress).then(
       (resp) => {

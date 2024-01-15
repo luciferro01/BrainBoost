@@ -23,7 +23,7 @@ export default function Content({ content, onChapterFinish }) {
       return;
     }
     setActiveIndex(index + 1);
-    contentRef.scrollToIndex({ animted: true, index: index + 1 });
+    contentRef.scrollToIndex({ animated: true, index: index + 1 });
   };
   return (
     <View style={{ padding: 0, height: "100%" }}>
@@ -77,7 +77,7 @@ export default function Content({ content, onChapterFinish }) {
                   backgroundColor: Colors.PRIMARY,
                   color: Colors.WHITE,
                   textAlign: "center",
-                  fontFamily: "outift",
+                  fontFamily: "outfit",
 
                   fontSize: 17,
                   borderRadius: 10,
