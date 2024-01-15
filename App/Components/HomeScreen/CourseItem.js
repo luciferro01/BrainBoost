@@ -4,6 +4,8 @@ import Colors from "../../Utils/Colors";
 import { Ionicons } from "@expo/vector-icons";
 import CourseProgressBar from "./CourseProgressBar.js";
 export default function CourseItem({ item, completedChapter }) {
+  console.log(item?.chapters?.length);
+  console.log("Yoooooooooooo : " + completedChapter);
   return (
     <View
       style={{

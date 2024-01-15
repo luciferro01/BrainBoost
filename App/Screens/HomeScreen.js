@@ -8,10 +8,10 @@ import {
 } from "react-native-responsive-screen";
 import { StatusBar } from "expo-status-bar";
 import CourseList from "../Components/HomeScreen/CourseList";
-import CourseProgressBar from "../Components/HomeScreen/CourseProgressBar";
 import { createNewUser, getUserDetail } from "../services";
 import { useAuth, useUser } from "@clerk/clerk-expo";
 import { UserPointsContext } from "../Context/UserPointsContext";
+import CourseProgress from "../Components/HomeScreen/CourseProgress";
 
 const HomeScreen = () => {
   const { isLoaded, signOut } = useAuth();
@@ -55,7 +55,7 @@ const HomeScreen = () => {
       </View>
       <View style={{ paddingLeft: 20, paddingTop: 20 }}>
         <View style={{ marginTop: -90 }}>
-          <CourseProgressBar />
+          <CourseProgress />
           <CourseList level={"Basic"} />
         </View>
       </View>
