@@ -5,8 +5,6 @@ import MyCourse from "../Screens/MyCourse";
 import ProfileSection from "../Screens/ProfileSection";
 import { Feather } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
-import HomeScreen from "../Screens/HomeScreen";
-import { NavigationContainer } from "@react-navigation/native";
 import HomeScreenNavigation from "./HomeScreenNavigation";
 const Tab = createBottomTabNavigator();
 
@@ -17,13 +15,9 @@ const TabNavigation = () => {
       // backBehavior="intialRoute"
       screenOptions={{ headerShown: false }}
     >
-      {/* <Tab.Screen
-        name="HomeScreenNavigation"
-        component={HomeScreenNavigation}
-      /> */}
       <Tab.Screen
         name="home"
-        component={HomeScreen}
+        component={HomeScreenNavigation}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Feather name="home" size={size} color={color} />

@@ -9,13 +9,10 @@ const Stack = createStackNavigator();
 
 const HomeScreenNavigation = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Tab" component={TabNavigation} />
-        <Stack.Screen name="home" component={HomeScreen} />
-        <Stack.Screen name="course-detail" component={CourseDetailScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="course-detail" component={CourseDetailScreen} />
+    </Stack.Navigator>
   );
 };
 

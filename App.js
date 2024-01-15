@@ -23,12 +23,12 @@ export default function App() {
       <SafeAreaProvider>
         <View style={styles.container}>
           <SignedIn>
-            {/* <NavigationContainer>
+            <NavigationContainer>
               <TabNavigation style={{ fontFamily: "outfit" }} />
+            </NavigationContainer>
+            {/* <NavigationContainer> 
+             <HomeScreenNavigation /> 
             </NavigationContainer> */}
-            {/* <NavigationContainer> */}
-            <HomeScreenNavigation />
-            {/* </NavigationContainer> */}
           </SignedIn>
           <SignedOut>
             <LogInScreen />
