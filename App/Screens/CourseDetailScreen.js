@@ -13,12 +13,13 @@ import ChapterSection from "../Components/CourseDetailScreen/ChapterSection";
 import { enrollCourse, getUserEnrolledCourse } from "../services";
 
 import { useUser } from "@clerk/clerk-expo";
+import { CompleteChapterContext } from "../Context/CompleteChapterContext";
 export default function CourseDetailScreen() {
   const navigate = useNavigation();
   const params = useRoute().params;
-  // const { isChapterComplete, setIsChapterComplete } = useContext(
-  //   CompleteChapterContext
-  // );
+  const { isChapterComplete, setIsChapterComplete } = useContext(
+    CompleteChapterContext
+  );
 
   const [userEnrolledCourse, setUserEnrolledCourse] = useState([]);
   const { user } = useUser();
