@@ -51,7 +51,7 @@ const HomeScreen = () => {
           padding: hp(2),
         }}
       >
-        <Header />
+        <Header userPoints={userPoints} />
       </View>
       <View style={{ paddingLeft: 20, paddingTop: 20 }}>
         <View style={{ marginTop: -90 }}>
