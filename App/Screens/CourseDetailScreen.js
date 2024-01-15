@@ -1,4 +1,10 @@
-import { TouchableOpacity, ScrollView, ToastAndroid } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  ToastAndroid,
+} from "react-native";
 import React, { useContext, useEffect, useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -10,6 +16,9 @@ import { useUser } from "@clerk/clerk-expo";
 export default function CourseDetailScreen() {
   const navigate = useNavigation();
   const params = useRoute().params;
+  // const { isChapterComplete, setIsChapterComplete } = useContext(
+  //   CompleteChapterContext
+  // );
 
   const [userEnrolledCourse, setUserEnrolledCourse] = useState([]);
   const { user } = useUser();
@@ -48,6 +57,10 @@ export default function CourseDetailScreen() {
           course={params.course}
           userEnrolledCourse={userEnrolledCourse}
           enrollCourse={() => UserEnrollCourse()}
+        />
+        <ChapterSection
+          chapterList={params.course.chapters}
+          userEnrolledCourse={userEnrolledCourse}
         />
       </ScrollView>
     )
