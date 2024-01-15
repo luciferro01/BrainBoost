@@ -7,7 +7,6 @@ import {
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 import { StatusBar } from "expo-status-bar";
-import { getCourseList } from "../services";
 import CourseList from "../Components/HomeScreen/CourseList";
 import CourseProgressBar from "../Components/HomeScreen/CourseProgressBar";
 

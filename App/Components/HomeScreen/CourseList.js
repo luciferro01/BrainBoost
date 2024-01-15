@@ -6,8 +6,11 @@ import Colors from "../../Utils/Colors";
 import CourseItem from "./CourseItem.js";
 import { localDB } from "../../Utils/_db";
 import { useNavigation } from "@react-navigation/native";
+import CourseDetailScreen from "../../Screens/CourseDetailScreen";
+import { Screen } from "react-native-screens";
 
 export default function CourseList({ level }) {
+  // For Local Database Connection
   const [courseList, setCourseList] = useState(localDB.courses);
   const navigation = useNavigation();
 
@@ -37,9 +40,7 @@ export default function CourseList({ level }) {
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() =>
-              navigation.navigate("my-courses", {
-                course: item,
-              })
+              navigation.navigate("course-detail", { course: item })
             }
           >
             <CourseItem item={item} />

@@ -7,6 +7,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-expo";
 import { NavigationContainer } from "@react-navigation/native";
 import TabNavigation from "./App/Navigations/TabNavigation";
+import HomeScreenNavigation from "./App/Navigations/HomeScreenNavigation";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -22,9 +23,12 @@ export default function App() {
       <SafeAreaProvider>
         <View style={styles.container}>
           <SignedIn>
-            <NavigationContainer>
+            {/* <NavigationContainer>
               <TabNavigation style={{ fontFamily: "outfit" }} />
-            </NavigationContainer>
+            </NavigationContainer> */}
+            {/* <NavigationContainer> */}
+            <HomeScreenNavigation />
+            {/* </NavigationContainer> */}
           </SignedIn>
           <SignedOut>
             <LogInScreen />
