@@ -4,11 +4,11 @@
     "slug": "BrainBoost",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo.png",
     "userInterfaceStyle": "light",
     "scheme": "brainBoost",
     "splash": {
-      "image": "./assets/favicon.png",
+      "image": "./assets/splashIcon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,17 +17,22 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.BrainBoost"
+      "bundleIdentifier": "com.mohil_bansal.BrainBoost"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/logo.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anonymous.BrainBoost"
+      "package": "com.mohil_bansal.BrainBoost"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/splashIcon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6eac33b2-9afc-4f07-98fe-51bee38acfe4"
+      }
     }
   }
 }

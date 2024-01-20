@@ -8,6 +8,7 @@ import { localDB } from "../../Utils/_db";
 import { useNavigation } from "@react-navigation/native";
 import CourseDetailScreen from "../../Screens/CourseDetailScreen";
 import { Screen } from "react-native-screens";
+// import { getCourseList } from "../../services/";
 
 export default function CourseList({ level }) {
   // For Local Database Connection
@@ -16,7 +17,7 @@ export default function CourseList({ level }) {
 
   // const [courseList, setCourseList] = useState([]);
   // useEffect(() => {
-  //   // getCourses();
+  //   getCourses();
   // }, []);
 
   // const getCourses = () => {
